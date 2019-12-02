@@ -16,7 +16,7 @@ function fuel2(mass: number):number {
 }
 
 function day1() {
-    let fileContents = fs.readFileSync('../day1.input','utf8')
+    let fileContents = fs.readFileSync('../day01.input','utf8')
     let lines = fileContents.split("\n")
     let sum = 0
     lines.forEach(element => {

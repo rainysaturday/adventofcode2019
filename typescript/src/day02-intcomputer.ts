@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-let fileContents = fs.readFileSync('../day2.input','utf8')
+let fileContents = fs.readFileSync('../day02.input','utf8')
 
 // Test
 // fileContents = "1,9,10,3,2,3,11,0,99,30,40,50"
