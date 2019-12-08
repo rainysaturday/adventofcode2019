@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-let fileContents = fs.readFileSync('../leaderboard_json','utf8')
+let fileContents = fs.readFileSync('../leaderboard_json2','utf8')
 
 class Contender {
     public name: String
@@ -12,21 +12,21 @@ class Contender {
 }
 
 let leaderboard = JSON.parse(fileContents)
-let members = leaderboard["members"]
+let members = leaderboard.members
 members = Object.values(members)
 
 function get_members_for_star(day: number, star: number): Contender[] {
     let contenders: Contender[] = []
 
     for (let member of members) {
-        let completed_day = member["completion_day_level"][String(day)]
+        let completed_day = member.completion_day_level[String(day)]
         if (completed_day != undefined) {
             let completed_star = completed_day[String(star)]
             if (completed_star != undefined) {
-                let name = member.name == null ? "(anonymous user #" + member.id + ")" : member.name
+                let name = member.name == null ? "#" + member.id + "" : member.name
                 contenders.push(new Contender(
                     name,
-                    Number(completed_star["get_star_ts"])
+                    completed_star.get_star_ts
                 ))
             }
         }
